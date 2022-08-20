@@ -1,0 +1,7 @@
+[webservers]
+%{ for index, name in webserver_names ~}
+${name}  ansible_host=${private_ip[index]}
+%{ endfor ~}
+
+[agents]
+${agent_name}  ansible_host=${agent_public_ip}
